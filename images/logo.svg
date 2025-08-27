@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 506 812" width="506" height="812" role="img" aria-label="AI Cybersecurity Lab Logo Animated (rectangle, fading lines and nodes)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 812 812" width="812" height="812" role="img" aria-label="AI Cybersecurity Lab Logo Animated (square, command prompt screen)">
   <defs>
     <!-- Gradient red↔green for nodes -->
     <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
@@ -9,77 +9,100 @@
         <animate attributeName="stop-color" values="#ef4444;#16a34a;#ef4444" dur="8s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
-    <!-- Glow for keyhole -->
-    <radialGradient id="gKey" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#16a34a" stop-opacity="0.6">
-        <animate attributeName="stop-color" values="#16a34a;#ef4444;#16a34a" dur="6s" repeatCount="indefinite"/>
-        <animate attributeName="stop-opacity" values="0.6;0.15;0.6" dur="3s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="100%" stop-color="#16a34a" stop-opacity="0"/>
-    </radialGradient>
   </defs>
 
-  <g>
-    <!-- Rectangle enclosure -->
-    <rect x="160" y="160" width="192" height="240" rx="24" ry="24"
-          fill="none" stroke="#38bdf8" stroke-width="10"/>
+  <!-- Outer square enclosure with all four edges (rounded caps) -->
+  <g stroke="#38bdf8" stroke-width="20" fill="none" stroke-linecap="round">
+    <line x1="50" y1="50" x2="762" y2="50"/>
+    <line x1="50" y1="50" x2="50" y2="762"/>
+    <line x1="762" y1="50" x2="762" y2="762"/>
+    <line x1="50" y1="762" x2="762" y2="762"/>
+  </g>
 
-    <!-- Circuit links (fade in/out asynchronously) -->
-    <g fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="256" y1="240" x2="200" y2="220">
-        <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite" begin="0s"/>
-      </line>
-      <line x1="256" y1="240" x2="312" y2="220">
-        <animate attributeName="opacity" values="1;0;1" dur="2.2s" repeatCount="indefinite" begin="0.4s"/>
-      </line>
-      <line x1="256" y1="280" x2="200" y2="310">
-        <animate attributeName="opacity" values="1;0;1" dur="1.8s" repeatCount="indefinite" begin="0.7s"/>
-      </line>
-      <line x1="256" y1="280" x2="312" y2="310">
-        <animate attributeName="opacity" values="1;0;1" dur="2.4s" repeatCount="indefinite" begin="1s"/>
-      </line>
-      <line x1="256" y1="220" x2="256" y2="196">
-        <animate attributeName="opacity" values="1;0;1" dur="2.1s" repeatCount="indefinite" begin="0.3s"/>
-      </line>
-      <line x1="256" y1="300" x2="256" y2="324">
-        <animate attributeName="opacity" values="1;0;1" dur="1.9s" repeatCount="indefinite" begin="0.8s"/>
-      </line>
+  <!-- Command-prompt style screen in the lower half -->
+  <g id="screen" stroke="#38bdf8" stroke-linejoin="round">
+    <!-- Bezel -->
+    <rect x="140" y="450" width="532" height="260" rx="24" ry="24" fill="none" stroke-width="10"/>
+    <!-- Inner display (dark background) -->
+    <rect x="160" y="470" width="492" height="220" rx="16" ry="16" fill="#0b1220" stroke="#38bdf8" stroke-width="6"/>
+    <!-- Simulated terminal header dots -->
+    <g fill="#38bdf8">
+      <circle cx="180" cy="486" r="4"/>
+      <circle cx="196" cy="486" r="4"/>
+      <circle cx="212" cy="486" r="4"/>
     </g>
 
-    <!-- Nodes (2x larger) with appear/disappear -->
-    <g fill="url(#g1)">
-      <circle cx="256" cy="240" r="28">
-        <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="200" cy="220" r="22">
-        <animate attributeName="opacity" values="1;0;1" dur="1.6s" repeatCount="indefinite" begin="0.3s"/>
-      </circle>
-      <circle cx="312" cy="220" r="22">
-        <animate attributeName="opacity" values="1;0;1" dur="1.8s" repeatCount="indefinite" begin="0.6s"/>
-      </circle>
-      <circle cx="200" cy="310" r="22">
-        <animate attributeName="opacity" values="1;0;1" dur="1.9s" repeatCount="indefinite" begin="0.9s"/>
-      </circle>
-      <circle cx="312" cy="310" r="22">
-        <animate attributeName="opacity" values="1;0;1" dur="2.1s" repeatCount="indefinite" begin="1.2s"/>
-      </circle>
-      <circle cx="256" cy="196" r="18">
-        <animate attributeName="opacity" values="1;0;1" dur="1.7s" repeatCount="indefinite" begin="0.5s"/>
-      </circle>
-      <circle cx="256" cy="324" r="18">
-        <animate attributeName="opacity" values="1;0;1" dur="2.2s" repeatCount="indefinite" begin="0.7s"/>
-      </circle>
+    <!-- Typing/streaming lines (monospace effect using thin rects) -->
+    <g fill="#7dd3fc">
+      <!-- Line 1 -->
+      <rect x="180" y="502" width="0" height="10">
+        <animate attributeName="width" values="0;260;260" dur="2.0s" repeatCount="indefinite" begin="0s" fill="freeze"/>
+      </rect>
+      <!-- Line 2 -->
+      <rect x="180" y="522" width="0" height="10">
+        <animate attributeName="width" values="0;340;340" dur="2.2s" repeatCount="indefinite" begin="0.3s" fill="freeze"/>
+      </rect>
+      <!-- Line 3 -->
+      <rect x="180" y="542" width="0" height="10">
+        <animate attributeName="width" values="0;180;180" dur="1.6s" repeatCount="indefinite" begin="0.7s" fill="freeze"/>
+      </rect>
+      <!-- Line 4 -->
+      <rect x="180" y="562" width="0" height="10">
+        <animate attributeName="width" values="0;420;420" dur="2.6s" repeatCount="indefinite" begin="1.0s" fill="freeze"/>
+      </rect>
+      <!-- Line 5 -->
+      <rect x="180" y="582" width="0" height="10">
+        <animate attributeName="width" values="0;300;300" dur="1.9s" repeatCount="indefinite" begin="1.3s" fill="freeze"/>
+      </rect>
+      <!-- Line 6 -->
+      <rect x="180" y="602" width="0" height="10">
+        <animate attributeName="width" values="0;380;380" dur="2.3s" repeatCount="indefinite" begin="1.6s" fill="freeze"/>
+      </rect>
+      <!-- Line 7 -->
+      <rect x="180" y="622" width="0" height="10">
+        <animate attributeName="width" values="0;220;220" dur="1.7s" repeatCount="indefinite" begin="1.9s" fill="freeze"/>
+      </rect>
+      <!-- Line 8 -->
+      <rect x="180" y="642" width="0" height="10">
+        <animate attributeName="width" values="0;440;440" dur="2.8s" repeatCount="indefinite" begin="2.2s" fill="freeze"/>
+      </rect>
     </g>
 
-    <!-- Keyhole glow -->
-    <g>
-      <circle cx="256" cy="248" r="36" fill="url(#gKey)">
-        <animate attributeName="r" values="30;46;30" dur="2.8s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="256" cy="248" r="20" fill="#38bdf8">
-        <animate attributeName="fill" values="#38bdf8;#7dd3fc;#38bdf8" dur="3s" repeatCount="indefinite"/>
-      </circle>
-      <path d="M246 266h20l10 26h-40z" fill="#38bdf8"/>
-    </g>
+    <!-- Blinking caret at end of latest line -->
+    <rect x="180" y="662" width="12" height="16" fill="#38bdf8">
+      <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Stand -->
+    <path d="M336 730h140l18 32H318z" fill="#38bdf8" stroke="none"/>
+  </g>
+
+  <!-- Circuit links (top fan-out + short vertical above top node only) -->
+  <g fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="406" y1="300" x2="250" y2="200">
+      <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="406" y1="300" x2="562" y2="200">
+      <animate attributeName="opacity" values="1;0;1" dur="2.5s" repeatCount="indefinite" begin="0.5s"/>
+    </line>
+    <line x1="406" y1="250" x2="406" y2="150">
+      <animate attributeName="opacity" values="1;0;1" dur="1.8s" repeatCount="indefinite" begin="0.3s"/>
+    </line>
+  </g>
+
+  <!-- TOP Nodes only (1.5x larger, appear/disappear) -->
+  <g fill="url(#g1)">
+    <circle cx="250" cy="200" r="45">
+      <animate attributeName="opacity" values="1;0;1" dur="1.6s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="562" cy="200" r="45">
+      <animate attributeName="opacity" values="1;0;1" dur="1.8s" repeatCount="indefinite" begin="0.6s"/>
+    </circle>
+    <circle cx="406" cy="150" r="36">
+      <animate attributeName="opacity" values="1;0;1" dur="1.7s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="406" cy="300" r="42">
+      <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
   </g>
 </svg>
